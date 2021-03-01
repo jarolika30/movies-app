@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardInfo } from '../../../mocksData/cardsInfo';
 import Card from '../Card';
 import './CardsComponent.css';
 
@@ -7,10 +8,11 @@ class CardsComponent extends React.Component {
     return (
       <div className="cards-container">
         <div className="cards-total">
-          <div><span>2</span> movies found</div>
+          <div><span>{CardInfo.length}</span> movies found</div>
         </div>
-        <Card/>
-        <Card/>
+        {
+          CardInfo.map(el => <Card {...el}/>)
+        }
       </div>
     )
   }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Links } from '../../../mocksData/linkItems';
+import Link from '../Link';
 import './Navigation.css';
 
 class Navigation extends React.Component {
@@ -6,11 +8,9 @@ class Navigation extends React.Component {
     return (
       <>
         <ul>
-          <li className="list-item"><a href="#all">All</a></li>
-          <li className="list-item"><a href="#documentary">Documentary</a></li>
-          <li className="list-item"><a href="#comedy">Comedy</a></li>
-          <li className="list-item"><a href="#horror">Horror</a></li>
-          <li className="list-item"><a href="#crime">Crime</a></li>
+          {
+            Links.map((el, index) => <Link key={index + el} title={el} />)
+          }
         </ul>
       </>
     )
