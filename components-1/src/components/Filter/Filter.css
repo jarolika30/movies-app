@@ -1,0 +1,13 @@
+.sort-wrap {
+  display: flex;
+  color: #555555;
+}
+
+.sort-wrap > span {
+  margin-right: 7px;
+}
+
+.filter-select {
+  color: #ffffff;
+  background: #424242;
+}
