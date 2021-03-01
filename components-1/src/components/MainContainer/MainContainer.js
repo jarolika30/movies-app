@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../Navigation';
 import Filter from '../Filter';
 import CardsComponent from '../CardsComponent/CardsComponent';
+import ErrorBoundary from './ErrorBoundry';
 import './MainContainer.css';
 
 class MainContainer extends React.Component {
@@ -9,11 +10,13 @@ class MainContainer extends React.Component {
     return (
       <>
         <main className="main-container">
-          <div className="nav-wrap">
-            <Navigation/>
-            <Filter/>
-          </div>
-          <CardsComponent/>
+          <ErrorBoundary>
+            <div className="nav-wrap">
+              <Navigation/>
+              <Filter/>
+            </div>
+            <CardsComponent/>
+          </ErrorBoundary>
         </main>
       </>
     )
