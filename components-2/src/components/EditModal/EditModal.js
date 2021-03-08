@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Links } from '../../../mocksData/linkItems';
+import { InitialMovie, intialMovie } from '../../../mocksData/initialMovie'
 import './EditModal.css';
 
 export default function EditModal(props) {
   if (!props.show) {
     return null;
   }
+
+  const [movie, setMovie] = useState(props.movie);
 
   return (
     <div className="modal-edit" id="modal-edit">
@@ -16,28 +19,31 @@ export default function EditModal(props) {
         </div>
         <div className="edit-body">
           <h2>Edit movie</h2>
-          { props.mode && <label for="movie-id">Movie ID</label> }
+          { props.mode && <label htmlFor="movie-id">Movie ID</label> }
           { props.mode && <input
             className="edit-input"
             id="movie-id"
             type='text'
+            value={movie.id}
             disabled
           /> }
-          <label for="movie-title">Title</label>
+          <label htmlFor="movie-title">Title</label>
           <input
             className="edit-input"
             id='movie-title'
             type='text'
+            value={movie.title}
             placeholder='e.g. Moana'
           />
-          <label for="release-date">Release Date</label>
+          <label htmlFor="release-date">Release Date</label>
           <input
             className="edit-input"
             id='release-date'
             type='date'
+            value={movie.year}
             placeholder='Select Date'
           />
-          <label for="movie-url">Movie URL</label>
+          <label htmlFor="movie-url">Movie URL</label>
           <input
             className="edit-input"
             id='movie-url'
@@ -46,17 +52,17 @@ export default function EditModal(props) {
           />
           <select className="edit-input filter-select">
             {
-              Links.map((el, index) => <option value={index + 1}>{el}</option>)
+              Links.map((el, index) => <option key={el} value={index + 1}>{el}</option>)
             }
           </select>
-          <label for="overview">Overview</label>
+          <label htmlFor="overview">Overview</label>
           <input
             className="edit-input"
             id='overview'
             type='text'
             placeholder='Type movie overview here'
           />
-          <label for="runtime">Runtime</label>
+          <label htmlFor="runtime">Runtime</label>
           <input
             className="edit-input"
             id='runtime'
@@ -66,7 +72,7 @@ export default function EditModal(props) {
           />
         </div>
         <div className="edit-footer">
-          <button className='edit-reset-btn' type='reset'>Reset</button>
+          <button className='edit-reset-btn' type='reset' onClick={() => setMovie(InitialMovie)}>Reset</button>
           <button className='edit-submit-btn' type='submit'>Save</button>
         </div>
       </div>

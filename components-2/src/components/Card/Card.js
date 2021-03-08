@@ -54,6 +54,13 @@ export default function Card(props) {
     setShowEditModal(false);
   }
 
+  const movie = {
+    id: props.id,
+    title: props.title,
+    year: props.year,
+    ganre: props.ganre
+  }
+
   return (
     <div className="card-container">
       <div className="card-img">
@@ -74,12 +81,13 @@ export default function Card(props) {
         <span className="ganre">{props.ganre}</span>
       </div>
       <DeleteModal show={showDeleteModal} onClose={onCloseDeleteModal} handleConfirm={handleConfirm} />
-      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} />
+      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} movie={movie} />
     </div>
   )
 }
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   ganre: PropTypes.string.isRequired,
