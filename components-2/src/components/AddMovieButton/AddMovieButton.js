@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EditModal from '../EditModal';
-import { intialMovie } from '../../../mocksData/initialMovie'
+import { InitialMovie } from '../../../mocksData/initialMovie'
 import './AddMovieButton.css';
 
 export default function AddMovieButton() {
@@ -26,7 +26,7 @@ export default function AddMovieButton() {
       <button className="add-button" onClick={handleOpenModal}>
         + Add movie
       </button>
-      <EditModal show={showAddModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={false} movie={intialMovie} />
+      <EditModal show={showAddModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={false} movie={InitialMovie} />
     </>
   )
 }

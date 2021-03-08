@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Links } from '../../../mocksData/linkItems';
-import { InitialMovie, intialMovie } from '../../../mocksData/initialMovie'
+import { InitialMovie } from '../../../mocksData/initialMovie'
 import './EditModal.css';
 
 export default function EditModal(props) {
