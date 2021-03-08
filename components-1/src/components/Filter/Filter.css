@@ -9,5 +9,6 @@
 
 .filter-select {
   color: #ffffff;
+  text-transform: uppercase;
   background: #424242;
 }

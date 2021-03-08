@@ -4,7 +4,7 @@ import './Card.css';
 
 export default function Card(props) {
   return (
-    <div className="card-container" key={props.key}>
+    <div className="card-container">
       <div className="card-img">
         <div className="kebab-menu">
           <div className="circle"></div>
@@ -27,3 +27,4 @@ Card.PropTypes = {
   year: PropTypes.string.isRequired,
   ganre: PropTypes.string.isRequired,
 }
+

@@ -8,6 +8,7 @@
 
 .search-container h1 {
   font-size: 25px;
+  text-transform: uppercase;
 }
 
 .search-wrap {
@@ -41,4 +42,5 @@
   text-align: center;
   text-decoration: none;
   color: #ffffff;
+  text-transform: uppercase;
 }

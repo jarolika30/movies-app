@@ -4,7 +4,7 @@ import Footer from './Footer';
 import MainContainer from './MainContainer';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="app">
       <Header/>
@@ -16,4 +16,3 @@ function App() {
   );
 }
 
-export default App;

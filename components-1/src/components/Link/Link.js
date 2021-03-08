@@ -14,3 +14,4 @@ Link.PropTypes = {
   key: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 }
+
