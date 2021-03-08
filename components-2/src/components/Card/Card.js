@@ -1,34 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../Modal';
+import DeleteModal from '../DeleteModal';
+import EditModal from '../EditModal';
 import './Card.css';
 
 export default function Card(props) {
   const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const handleAction = (action) => (
     event
   ) => {
     event.preventDefault();
+
+    if (action === 'Delete') {
+      setShowModal(false);
+      setShowDeleteModal(true);
+    } else if (action === 'Edit') {
+      setShowModal(false);
+      setShowEditModal(true);
+    }
   }
 
   const onClose = (event) => {
     event.preventDefault();
     setShowModal(false);
-    console.log('showModal from onClose:', showModal);
+  }
+
+  const onCloseDeleteModal = (event) => {
+    event.preventDefault();
+    setShowDeleteModal(false);
+  }
+
+  const onCloseEditModal = (event) => {
+    event.preventDefault();
+    setShowEditModal(false);
   }
 
   const handleOpenModal = (event) => {
     event.preventDefault();
     setShowModal(true);
-    console.log('showModal from open:', showModal);
   }
 
-  useEffect(() => {
-    setShowModal(showModal);
-  }, [showModal]);
+  const handleConfirm = (event) => {
+    event.preventDefault();
+    setShowDeleteModal(false);
+  }
 
-  console.log('showModal:', showModal);
+  const handleEditConfirm = (event) => {
+    event.preventDefault();
+    setShowEditModal(false);
+  }
 
   return (
     <div className="card-container">
@@ -49,6 +73,8 @@ export default function Card(props) {
         <span className="year">{props.year}</span>
         <span className="ganre">{props.ganre}</span>
       </div>
+      <DeleteModal show={showDeleteModal} onClose={onCloseDeleteModal} handleConfirm={handleConfirm} />
+      <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} />
     </div>
   )
 }
