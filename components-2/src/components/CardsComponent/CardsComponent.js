@@ -8,7 +8,7 @@ export default function CardsComponent() {
     <div className="cards-container">
       <div className="cards-total">
         <div>
-          <span>{CardInfo.length}</span> 
+          <span>{CardInfo.length}</span>{" "}
           movies found
         </div>
       </div>
