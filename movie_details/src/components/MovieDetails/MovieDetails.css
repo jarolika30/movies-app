@@ -19,6 +19,7 @@
 
 .search-icon {
   display: inline-block;
+  cursor: pointer;
 }
 
 .search-icon svg {

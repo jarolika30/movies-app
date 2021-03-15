@@ -1,5 +1,10 @@
 exports.InitialMovie = {
-  id: "", 
-  title: "", 
-  year: ""
+  id: '', 
+  title: '', 
+  year: '',
+  ganre: '',
+  img: '',
+  rating: '',
+  duration: '',
+  description: ''
 }

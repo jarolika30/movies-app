@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
@@ -58,17 +58,30 @@ export default function Card(props) {
     id: props.id,
     title: props.title,
     year: props.year,
-    ganre: props.ganre
+    ganre: props.ganre,
+    img: props.img,
+    rating: props.rating,
+    duration: props.duration,
+    description: props.description
   }
+
+  const makeActiveMovie = useCallback(() => {
+    const editModal = showDeleteModal || showEditModal;
+    const isModalOpen = showModal || editModal;
+
+      if (!isModalOpen && movie.id !== props.activeFilm.id) {
+        props.handleClickMovie(movie);
+      }
+    }, [movie]);
 
   return (
     <div className="card-container">
-      <div className="card-img">
-        <div className={showModal ? "kebab-menu-hidden" : "kebab-menu"} onClick={handleOpenModal}>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-        </div>
+      <div className={showModal ? "kebab-menu-hidden" : "kebab-menu"} onClick={handleOpenModal}>
+        <div className="circle"></div>
+        <div className="circle"></div>
+        <div className="circle"></div>
+      </div>
+      <div className="card-img" onClick={makeActiveMovie}>
           <Modal 
             show={showModal} 
             onClose={onClose}
@@ -91,5 +104,11 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   year: PropTypes.string.isRequired,
   ganre: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  handleClickMovie: PropTypes.func.isRequired,
+  activeFilm: PropTypes.object.isRequired
 }
 

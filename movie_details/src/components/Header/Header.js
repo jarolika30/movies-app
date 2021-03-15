@@ -1,27 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Logo } from '../Logo';
 import AddMovieButton from '../AddMovieButton';
 import SearchMovieInput from '../SearchMovieInput';
 import MovieDetails from '../MovieDetails';
+import { InitialMovie } from '../../../mocksData/initialMovie';
 import './Header.css';
 
-export default function Header() {
-  const activeFilm = { 
-    id: '1234', 
-    title: 'Niagara', 
-    year: '1952', 
-    ganre: 'Mystery and thriller',
-    img: '/assets/img/merelin.png',
-    rating: '4.5',
-    duration: '90',
-    description: 'Rose Loomis (Marilyn Monroe) and her older, gloomier husband, George (Joseph Cotten), are vacationing at a cabin in Niagara Falls, N.Y. The couple befriend Polly (Jean Peters) and Ray Cutler (Casey Adams), who are honeymooning in the area. Polly begins to suspect that something is amiss between Rose and George, and her suspicions grow when she sees Rose in the arms of another man. While Ray initially thinks Polly is overreacting, things between George and Rose soon take a shockingly dark turn.'
+export default function Header(props) {
+  const [isDetailShown, setIsDetailShown] = useState(props.activeFilm.id);
+
+  const handleIconClick = () => {
+    props.handleClickMovie(InitialMovie);
   };
 
-  const [isDetailShown, setIsDetailShown] = useState(true);
-
-  const handleIconClick = useCallback(() => {
-    setIsDetailShown(!isDetailShown);
-  }, []);
+  useEffect(() => {
+    setIsDetailShown(props.activeFilm.id);
+  }, [props.activeFilm])
 
   return (
     <header className="header">
@@ -34,9 +29,14 @@ export default function Header() {
             <SearchMovieInput/>
           </>
         ) : (
-          <MovieDetails film={activeFilm} handleIconClick={handleIconClick} />
+          <MovieDetails film={props.activeFilm} handleIconClick={handleIconClick} />
         )
       }
     </header>
   )
+}
+
+Header.propTypes = {
+  activeFilm: PropTypes.object.isRequired,
+  handleClickMovie: PropTypes.func.isRequired
 }
