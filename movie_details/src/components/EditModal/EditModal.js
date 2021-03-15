@@ -18,7 +18,7 @@ export default function EditModal(props) {
           <span className="edit-close-sign" onClick={props.onClose}>x</span>
         </div>
         <div className="edit-body">
-          <h2>Edit movie</h2>
+          <h2>{ props.mode ? 'Edit movie' : 'Add movie' }</h2>
           { props.mode && <label htmlFor="movie-id">Movie ID</label> }
           { props.mode && <input
             className="edit-input"

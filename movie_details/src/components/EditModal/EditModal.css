@@ -4,7 +4,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background:rgba(17, 16, 16, 0.5);;
+  background:rgba(17, 16, 16, 0.5);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@
 }
 
 .edit-body {
-  padding: 20px;
+  padding: 0 20px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -100,4 +100,5 @@
 .edit-footer {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
 }

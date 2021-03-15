@@ -13,6 +13,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background: hsl(0, 0%, 14%) url(/assets/merelin.png);
+  cursor: pointer;
 }
 
 .circle {
