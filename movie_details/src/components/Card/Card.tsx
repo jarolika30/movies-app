@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from '../Modal';
 import DeleteModal from '../DeleteModal';
 import EditModal from '../EditModal';
-import './Card.css';
+import './Card.scss';
 
 export default function Card(props) {
   const [showModal, setShowModal] = useState(false);

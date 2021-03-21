@@ -19,20 +19,22 @@ export default function Header(props) {
   }, [props.activeFilm])
 
   return (
-    <header className="header">
-      { !isDetailShown ? (
-          <>
-            <div className="header-add-movie">
-              <Logo/>
-              <AddMovieButton/>
-            </div>
-            <SearchMovieInput/>
-          </>
-        ) : (
-          <MovieDetails film={props.activeFilm} handleIconClick={handleIconClick} />
-        )
-      }
-    </header>
+    <div className="header-wrap">
+      <header className="header">
+        { !isDetailShown ? (
+            <>
+              <div className="header-add-movie">
+                <Logo/>
+                <AddMovieButton/>
+              </div>
+              <SearchMovieInput/>
+            </>
+          ) : (
+            <MovieDetails film={props.activeFilm} handleIconClick={handleIconClick} />
+          )
+        }
+      </header>
+    </div>
   )
 }
 

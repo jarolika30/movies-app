@@ -8,13 +8,15 @@ import './MainContainer.css';
 
 export default function MainContainer(props) {
   return (
-    <main className="main-container">
-      <div className="nav-wrap">
-        <Navigation/>
-        <Filter/>
-      </div>
-      <CardsComponent films={props.films} handleClickMovie={props.handleClickMovie} activeFilm={props.activeFilm} />
-    </main>
+    <div className="main-wrap">
+      <main className="main-container">
+        <div className="nav-wrap">
+          <Navigation/>
+          <Filter/>
+        </div>
+        <CardsComponent films={props.films} handleClickMovie={props.handleClickMovie} activeFilm={props.activeFilm} />
+      </main>
+    </div>
   )
 }
 
