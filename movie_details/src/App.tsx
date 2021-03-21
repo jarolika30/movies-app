@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import MainContainer from './MainContainer';
-import { CardInfo } from '../../mocksData/cardsInfo';
-import { InitialMovie } from '../../mocksData/initialMovie';
+import Header from './containers/Header';
+import Footer from './containers/Footer';
+import MainContainer from './containers/MainContainer';
+import { CardInfo } from '../mocksData/cardsInfo';
+import { InitialMovie } from '../mocksData/initialMovie';
 import './App.css';
 
 export default function App() {

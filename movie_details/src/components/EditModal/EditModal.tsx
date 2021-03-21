@@ -84,5 +84,6 @@ EditModal.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   handleConfirm: PropTypes.func.isRequired,
-  mode: PropTypes.bool.isRequired
+  mode: PropTypes.bool.isRequired,
+  movie: PropTypes.object
 }
