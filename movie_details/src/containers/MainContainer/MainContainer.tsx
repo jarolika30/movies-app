@@ -7,6 +7,8 @@ import ErrorBoundary from './ErrorBoundry';
 import './MainContainer.css';
 
 export default function MainContainer(props) {
+  const { films, activeFilm } = props;
+
   return (
     <div className="main-wrap">
       <main className="main-container">
@@ -14,7 +16,7 @@ export default function MainContainer(props) {
           <Navigation/>
           <Filter/>
         </div>
-        <CardsComponent films={props.films} handleClickMovie={props.handleClickMovie} activeFilm={props.activeFilm} />
+        <CardsComponent films={films} handleClickMovie={props.handleClickMovie} activeFilm={activeFilm} />
       </main>
     </div>
   )

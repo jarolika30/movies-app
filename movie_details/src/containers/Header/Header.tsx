@@ -8,15 +8,16 @@ import { InitialMovie } from '../../../mocksData/initialMovie';
 import './Header.css';
 
 export default function Header(props) {
-  const [isDetailShown, setIsDetailShown] = useState(props.activeFilm.id);
+  const { activeFilm } = props;
+  const [isDetailShown, setIsDetailShown] = useState(activeFilm.id);
 
   const handleIconClick = () => {
     props.handleClickMovie(InitialMovie);
   };
 
   useEffect(() => {
-    setIsDetailShown(props.activeFilm.id);
-  }, [props.activeFilm])
+    setIsDetailShown(activeFilm.id);
+  }, [activeFilm])
 
   return (
     <div className="header-wrap">
@@ -30,7 +31,7 @@ export default function Header(props) {
               <SearchMovieInput/>
             </>
           ) : (
-            <MovieDetails film={props.activeFilm} handleIconClick={handleIconClick} />
+            <MovieDetails film={activeFilm} handleIconClick={handleIconClick} />
           )
         }
       </header>

@@ -5,11 +5,12 @@ import { InitialMovie } from '../../../mocksData/initialMovie'
 import './EditModal.css';
 
 export default function EditModal(props) {
-  if (!props.show) {
+  const { show, mode, movie } = props;
+  if (!show) {
     return null;
   }
 
-  const [movie, setMovie] = useState(props.movie);
+  const [currentMovie, setMovie] = useState(movie);
 
   return (
     <div className="modal-edit" id="modal-edit">
@@ -18,13 +19,13 @@ export default function EditModal(props) {
           <span className="edit-close-sign" onClick={props.onClose}>x</span>
         </div>
         <div className="edit-body">
-          <h2>{ props.mode ? 'Edit movie' : 'Add movie' }</h2>
-          { props.mode && <label htmlFor="movie-id">Movie ID</label> }
-          { props.mode && <input
+          <h2>{ mode ? 'Edit movie' : 'Add movie' }</h2>
+          { mode && <label htmlFor="movie-id">Movie ID</label> }
+          { mode && <input
             className="edit-input"
             id="movie-id"
             type='text'
-            value={movie.id}
+            value={currentMovie.id}
             disabled
           /> }
           <label htmlFor="movie-title">Title</label>
@@ -32,7 +33,7 @@ export default function EditModal(props) {
             className="edit-input"
             id='movie-title'
             type='text'
-            value={movie.title}
+            value={currentMovie.title}
             placeholder='e.g. Moana'
           />
           <label htmlFor="release-date">Release Date</label>
@@ -40,7 +41,7 @@ export default function EditModal(props) {
             className="edit-input"
             id='release-date'
             type='date'
-            value={movie.year}
+            value={currentMovie.year}
             placeholder='Select Date'
           />
           <label htmlFor="movie-url">Movie URL</label>

@@ -10,6 +10,8 @@ export default function Card(props) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
+  const { id, title, year, description, ganre, img, rating, duration, activeFilm } = props;
+
   const handleAction = (action) => (
     event
   ) => {
@@ -55,21 +57,21 @@ export default function Card(props) {
   }
 
   const movie = {
-    id: props.id,
-    title: props.title,
-    year: props.year,
-    ganre: props.ganre,
-    img: props.img,
-    rating: props.rating,
-    duration: props.duration,
-    description: props.description
+    id,
+    title,
+    year,
+    ganre,
+    img,
+    rating,
+    duration,
+    description
   }
 
   const makeActiveMovie = useCallback(() => {
     const editModal = showDeleteModal || showEditModal;
     const isModalOpen = showModal || editModal;
 
-      if (!isModalOpen && movie.id !== props.activeFilm.id) {
+      if (!isModalOpen && movie.id !== activeFilm.id) {
         props.handleClickMovie(movie);
       }
     }, [movie]);
@@ -89,9 +91,9 @@ export default function Card(props) {
           />
       </div>
       <div className="card-info">
-        <h3 className="title">{props.title}</h3>
-        <span className="year">{props.year}</span>
-        <span className="ganre">{props.ganre}</span>
+        <h3 className="title">{title}</h3>
+        <span className="year">{year}</span>
+        <span className="ganre">{ganre}</span>
       </div>
       <DeleteModal show={showDeleteModal} onClose={onCloseDeleteModal} handleConfirm={handleConfirm} />
       <EditModal show={showEditModal} onClose={onCloseEditModal} handleConfirm={handleEditConfirm} mode={true} movie={movie} />

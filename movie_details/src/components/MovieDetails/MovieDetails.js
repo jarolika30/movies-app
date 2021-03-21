@@ -5,6 +5,7 @@ import { Logo } from '../Logo';
 import './MovieDetails.css';
 
 export default function MovieDetails(props) {
+  const { film } = props;
   return (
     <div className="movie-details">
       <div className="header-details">
@@ -15,19 +16,19 @@ export default function MovieDetails(props) {
       </div>
       <div className="body-details">
         <div className="film-img">
-          <img src={props.film.img} alt={props.film.title} />
+          <img src={film.img} alt={film.title} />
         </div>
         <div className="film-info">
           <div className="film-info-title">
-            <span>{props.film.title}</span>
-            <div className="film-rating">{props.film.rating}</div>
+            <span>{film.title}</span>
+            <div className="film-rating">{film.rating}</div>
           </div>
           <div>
-            <span className="film-year">{props.film.year}</span>
-            <span className="film-duration">{`${props.film.duration} min`}</span>
+            <span className="film-year">{film.year}</span>
+            <span className="film-duration">{`${film.duration} min`}</span>
           </div>
           <div className="film-description">
-            <p>{props.film.description}</p>
+            <p>{film.description}</p>
           </div>
         </div>
       </div>
