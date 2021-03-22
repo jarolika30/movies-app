@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import EditModal from '../EditModal';
-import { InitialMovie } from '../../../mocksData/initialMovie'
+import EditModal from '../../../../components/EditModal';
+import { InitialMovie } from '../../../../../mocksData/initialMovie'
 import './AddMovieButton.css';
 
 export default function AddMovieButton() {

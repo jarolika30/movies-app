@@ -25,3 +25,12 @@
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
+
+.filter-block {
+  display: flex;
+  color: #555555;
+}
+
+.filter-block > span {
+  margin-right: 7px;
+}

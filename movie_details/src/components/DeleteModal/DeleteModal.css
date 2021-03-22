@@ -4,7 +4,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background:rgba(17, 16, 16, 0.5);;
+  background:rgba(17, 16, 16, 0.5);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   width: 50%;
   background: #232323;
   border-radius: 5px;
-  border: 1px solid rgb(209, 208, 208);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), 0 10px 10px rgba(0,0,0,0.40);
   color: white;
   height: 240px;
   box-sizing: border-box;

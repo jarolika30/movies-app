@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchIcon from '@epam/assets/icons/common/action-search-24.svg';
 import PropTypes from 'prop-types';
-import { Logo } from '../Logo';
+import { Logo } from '../../../../components/Logo';
 import './MovieDetails.css';
 
 export default function MovieDetails(props) {

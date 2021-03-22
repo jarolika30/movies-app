@@ -17,10 +17,10 @@
   width: 40%;
   background: #232323;
   border-radius: 5px;
-  border: 1px solid rgb(209, 208, 208);
   color: white;
   padding: 10px;
   box-sizing: border-box;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), 0 10px 10px rgba(0,0,0,0.40);
 }
 
 .edit-header {
@@ -60,6 +60,17 @@
   color: #d8d7d7;
   font-size: 16px;
   margin-bottom: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-input:disabled {
+  background: #2b2a2a;
+  cursor: default;
+}
+
+.edit-input:focus {
+  outline: none;
 }
 
 .filter-select {

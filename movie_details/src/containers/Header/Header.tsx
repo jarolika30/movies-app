@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Logo } from '../../components/Logo';
-import AddMovieButton from '../../components/AddMovieButton';
-import SearchMovieInput from '../../components/SearchMovieInput';
-import MovieDetails from '../../components/MovieDetails';
+import AddMovieButton from './components/AddMovieButton';
+import SearchMovieInput from './components/SearchMovieInput';
+import MovieDetails from './components/MovieDetails';
 import { InitialMovie } from '../../../mocksData/initialMovie';
 import './Header.css';
 

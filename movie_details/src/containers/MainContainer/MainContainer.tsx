@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Navigation from '../../components/Navigation';
 import Filter from '../../components/Filter';
 import CardsComponent from '../../components/CardsComponent/CardsComponent';
-import ErrorBoundary from './ErrorBoundry';
+import ErrorBoundary from '../../components/ErrorBoundary';
 import './MainContainer.css';
 
 export default function MainContainer(props) {
@@ -14,9 +14,14 @@ export default function MainContainer(props) {
       <main className="main-container">
         <div className="nav-wrap">
           <Navigation/>
-          <Filter/>
+          <div className="filter-block">
+            <span>Sort by</span> 
+            <Filter/>
+          </div>
         </div>
-        <CardsComponent films={films} handleClickMovie={props.handleClickMovie} activeFilm={activeFilm} />
+        <ErrorBoundary>
+          <CardsComponent films={films} handleClickMovie={props.handleClickMovie} activeFilm={activeFilm} />
+        </ErrorBoundary>
       </main>
     </div>
   )
